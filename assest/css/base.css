@@ -1,0 +1,395 @@
+:root {
+    --primary-color: rgb(255, 79, 4);
+    --black-color: #000;
+    --while-color: #fff;
+    --textcolor: #333;
+
+    --header-height: 120px;
+    --navbar-height: 36px;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6px;
+    font-family: 'Roboto', sans-serif;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Đăng ký, đăng nhập phần chung */
+.r-l__modal {
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    display: none;
+    z-index: 5;
+}
+
+@keyframes appearForm {
+    from {
+        opacity: 0;
+        transform: scale(var(--size-from));
+    }
+    to {
+        opacity: 1;
+        transform: scale(var(--size-to));
+    }
+}
+
+.modal-none {
+    display: flex;
+}
+
+.r-l__modal--overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+    will-change: opacity;
+}
+
+.r-l__modal--container {
+    --size-from: 0.6;
+    --size-to: 1;
+    margin: auto;
+    width: 400px;
+    background-color: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    will-change: opacity, transform;
+    animation: appearForm ease 0.4s;
+}
+
+.r-l__cover {
+    width: 88%;
+}
+
+.r-l__header {
+    padding-top: 36px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.r-l__header--login {
+    font-size: 20px;
+    cursor: default;
+    color: #000;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.r-l--res .r-l__header--login,
+.r-l__header--res {
+    line-height: 28px;
+    font-size: 16px;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-weight: 400;
+    margin: 0;
+    text-decoration: none;
+}
+
+.r-l--res .r-l__header--res {
+    font-size: 20px;
+    cursor: default;
+    color: #000;
+    text-decoration: underline;
+}
+
+/* Form đăng nhập - 408px*/
+.login {
+    display: block;
+}
+
+.r-l--res .login {
+    display: none;
+}
+
+.login__form--password,
+.login__form--user {
+    display: block;
+    width: 100%;
+    margin-top: 36px;
+    height: 36px;
+    font-size: 13px;
+    border: solid #ccc 1px;
+    color: #ccc;
+    box-sizing: border-box;
+    padding: 8px;
+    border-radius: 2px;
+}
+
+.login__form--password:focus,
+.login__form--user:focus {
+    outline: none;
+}
+
+.login__form--password {
+    margin-top: 24px;
+}
+
+.login__form--btn {
+    padding: 0;
+    margin-top: 36px;
+    margin-bottom: 8px;
+    width: 100%;
+    height: 36px;
+    font-size: 16px;
+    border: none;
+    background-color: var(--primary-color);
+    cursor: pointer;
+    color: #fff;
+    border-radius: 2px;
+}
+
+.login__footer--text {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.login__footer--text > h3 {
+    margin: 0;
+    padding-top: 20px;
+}
+
+.login__footer--SMS,
+.login__footer--forget {
+    border-bottom: solid 1px #ccc;
+    width: 140px;
+}
+
+.login__footer--SMS {
+    border-bottom: solid 1px #ccc;
+}
+
+.login__footer--SMS > a,
+.login__footer--forget > a {
+    text-decoration: none;
+    color: #6a6aff;
+    font-size: 11px;
+}
+
+.login__footer--SMS > a {
+    float: right;
+}
+
+.login__footer--social {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 26px;
+}
+
+.login__footer--apple,
+.login__footer--gg,
+.login__footer--face {
+    width: 110px;
+    height: 42px;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 42px;
+    color: var(--while-color);
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.login__footer--apple > i,
+.login__footer--gg > i,
+.login__footer--face > i {
+    font-size: 26px;
+    margin-right: 12px;
+}
+
+.login__footer--face {
+    background-color: #2266ff;
+}
+
+.login__footer--gg {
+    background-color: #2266ff;
+}
+
+.login__footer--apple {
+    background-color: #000;
+}   
+
+.login__footer--begin {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    color: rgb(177, 177, 177);
+    font-size: 14px;
+}
+
+.login__footer--begin > a {
+    transform: translateX(8px);
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+/* form đăng ký - 408px*/
+.register {
+    display: none;
+}
+
+.r-l--res .register {
+    display: block;
+}
+
+.register__main {
+    margin-top: 36px;
+}
+
+.register--confirm-input,
+.register__form--input-robot,
+.register__form--user {
+    width: 100%;
+    height: 36px;
+    font-size: 13px;
+    border: solid #ccc 1px;
+    color: #ccc;
+    box-sizing: border-box;
+    padding: 8px;
+    border-radius: 2px;
+}
+
+.register--confirm-input:focus,
+.register__form--input-robot:focus,
+.register__form--user:focus {
+    outline: none;
+}
+
+.register__form--cover-robot {
+    margin-top: 12px;
+    display: flex;
+    border: solid 1px #ccc;
+    border-radius: 2px;
+}
+
+.register__form--input-robot {
+    border: none;
+    width: 80%;
+}
+
+.register__form--no-robot {
+    border-left: solid #ccc 1px;
+    padding-left: 8px;
+    font-size: 16px;
+    line-height: 36px;
+}
+
+.register__form--confirm {
+    height: 36px;
+    border: #ccc solid 1px;
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.register--confirm-input {
+    border: none;
+    width: 70%;
+}
+
+.register--confirm-send {
+    height: 34px;
+    background-color: #fff;
+    border: none;
+    border-left: #ccc solid 1px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.register__form--request {
+    margin: 24px 0 54px 0;
+    font-size: 13px;
+}
+
+.register__form--request > a {
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin-top: 16px;
+}
+
+.register__form--btn {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.form-cancel {
+    line-height: 23px;
+    padding-right: 26px;
+    color: #565656;
+}
+
+.form-cancel,
+.register__form--btn--comfirm > h2 {
+    font-weight: 400;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.register__form--btn--comfirm {
+    color: #fff;
+    background-color: var(--primary-color);
+    border: none;
+    width: 110px;
+    border-radius: 2px;
+}
+
+.register__footer {
+    margin: 12px 0;
+    border-top: solid 1px #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+
+.register__footer--gg,
+.register__footer--face {
+    margin-top: 12px;
+    width: 169px;
+    height: 33px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    line-height: 42px;
+    color: var(--while-color);
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.register__footer--face {
+    background-color: #2266ff;
+}
+
+.register__footer--gg {
+    background-color: #fff;
+    color: #565656;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.register__footer--gg > i,
+.register__footer--face > i {
+    font-size: 26px;
+    margin: 0 16px 0 8px;
+}
